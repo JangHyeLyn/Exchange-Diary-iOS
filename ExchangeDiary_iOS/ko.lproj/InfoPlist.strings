@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  ExchangeDiary_iOS
+
+  Created by 임수현 on 2021/05/31.
+  
+*/
+
+"CFBundleDisplayName" = "교환일기";
