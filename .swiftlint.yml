@@ -1,0 +1,43 @@
+# .swiftlint.yml
+# ExchangeDiary_iOS
+#
+# Created by tngusmiso on 2021/05/03.
+#
+
+disabled_rules: # 비활성화할 규칙
+    # 라인이 120 글자 이상이면 안됩니다. (https://realm.github.io/SwiftLint/line_length.html)
+    - line_length # XCode 자체 길이제한 룰 사용
+    
+
+opt_in_rules: # 활성화할 규칙
+    # 클로저 표현식은 각 중괄호 안에 하나의 공백이 있어야합니다. (https://realm.github.io/SwiftLint/closure_spacing.html)
+    - closure_spacing
+    
+    # fatalError 호출에는 메시지가 있어야합니다. (https://realm.github.io/SwiftLint/fatal_error_message.html)
+    - fatal_error_message
+    
+    # 강제 언랩핑은 피해야합니다. (https://realm.github.io/SwiftLint/force_unwrapping.html)
+    - force_unwrapping
+    
+    # 암시적 언래핑은 피해야합니다. (https://realm.github.io/SwiftLint/implicitly_unwrapped_optional.html)
+    - implicitly_unwrapped_optional
+    
+    # 레거시 함수보다 type.random(in:)를 사용하는 것이 좋습니다. (https://realm.github.io/SwiftLint/legacy_random.html)
+    - legacy_random
+    
+    # 모든 연산자는 좌 우 에 공백이 있어야 합니다. (https://realm.github.io/SwiftLint/operator_usage_whitespace.html)
+    - operator_usage_whitespace
+
+
+excluded: # SwiftLint 검사에서 제외할 파일 경로
+    - ExchangeDiary_iOS/AppDelegate.swift
+    - ExchangeDiary_iOS/SceneDelegate.swift
+
+
+indentation: 4
+
+# 1글자로 구성된 수학적인 미지수 이름(x,y,z 등)을 사용할 수 있습니다.
+identifier_name:
+    min_length: 1
+type_name:
+    min_length: 1
