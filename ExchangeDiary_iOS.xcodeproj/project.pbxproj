@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		3ADABDA02663DE06008EA264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADABD9F2663DE06008EA264 /* Assets.xcassets */; };
 		3ADABDA32663DE06008EA264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADABDA12663DE06008EA264 /* LaunchScreen.storyboard */; };
 		3ADABDBE26640DAA008EA264 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ADABDC026640DAA008EA264 /* InfoPlist.strings */; };
+		3ADABDC8266422A4008EA264 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADABDC7266422A4008EA264 /* Lottie */; };
+		3ADABDCC26642957008EA264 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADABDCB26642957008EA264 /* FirebaseAnalytics */; };
+		3ADABDCE26642957008EA264 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADABDCD26642957008EA264 /* FirebaseDynamicLinks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADABDCC26642957008EA264 /* FirebaseAnalytics in Frameworks */,
+				3ADABDC8266422A4008EA264 /* Lottie in Frameworks */,
+				3ADABDCE26642957008EA264 /* FirebaseDynamicLinks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +94,11 @@
 			dependencies = (
 			);
 			name = ExchangeDiary_iOS;
+			packageProductDependencies = (
+				3ADABDC7266422A4008EA264 /* Lottie */,
+				3ADABDCB26642957008EA264 /* FirebaseAnalytics */,
+				3ADABDCD26642957008EA264 /* FirebaseDynamicLinks */,
+			);
 			productName = ExchangeDiary_iOS;
 			productReference = 3ADABD932663DE06008EA264 /* ExchangeDiary_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +127,10 @@
 				ko,
 			);
 			mainGroup = 3ADABD8A2663DE06008EA264;
+			packageReferences = (
+				3ADABDC6266422A4008EA264 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				3ADABDCA26642957008EA264 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3ADABD942663DE06008EA264 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +395,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3ADABDC6266422A4008EA264 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
+		3ADABDCA26642957008EA264 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3ADABDC7266422A4008EA264 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3ADABDC6266422A4008EA264 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		3ADABDCB26642957008EA264 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3ADABDCA26642957008EA264 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		3ADABDCD26642957008EA264 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3ADABDCA26642957008EA264 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3ADABD8B2663DE06008EA264 /* Project object */;
 }
