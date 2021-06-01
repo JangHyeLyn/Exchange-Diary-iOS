@@ -17,6 +17,8 @@
 		3ADABDC8266422A4008EA264 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADABDC7266422A4008EA264 /* Lottie */; };
 		3ADABDCC26642957008EA264 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADABDCB26642957008EA264 /* FirebaseAnalytics */; };
 		3ADABDCE26642957008EA264 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADABDCD26642957008EA264 /* FirebaseDynamicLinks */; };
+		3ADABDD12664D5AC008EA264 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABDD02664D5AC008EA264 /* UIColor+Additions.swift */; };
+		3ADABDDA2666822F008EA264 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABDD92666822F008EA264 /* UIFont+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		3ADABDA42663DE06008EA264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ADABDBF26640DAA008EA264 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3ADABDC226640DED008EA264 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3ADABDD02664D5AC008EA264 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		3ADABDD92666822F008EA264 /* UIFont+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,16 +69,26 @@
 		3ADABD952663DE06008EA264 /* ExchangeDiary_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3ADABDD32664D5B5008EA264 /* Extensions */,
 				3ADABD962663DE06008EA264 /* AppDelegate.swift */,
 				3ADABD982663DE06008EA264 /* SceneDelegate.swift */,
 				3ADABD9A2663DE06008EA264 /* ViewController.swift */,
 				3ADABD9C2663DE06008EA264 /* Main.storyboard */,
-				3ADABD9F2663DE06008EA264 /* Assets.xcassets */,
 				3ADABDA12663DE06008EA264 /* LaunchScreen.storyboard */,
 				3ADABDA42663DE06008EA264 /* Info.plist */,
 				3ADABDC026640DAA008EA264 /* InfoPlist.strings */,
+				3ADABD9F2663DE06008EA264 /* Assets.xcassets */,
 			);
 			path = ExchangeDiary_iOS;
+			sourceTree = "<group>";
+		};
+		3ADABDD32664D5B5008EA264 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3ADABDD02664D5AC008EA264 /* UIColor+Additions.swift */,
+				3ADABDD92666822F008EA264 /* UIFont+Additions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +195,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADABD9B2663DE06008EA264 /* ViewController.swift in Sources */,
+				3ADABDDA2666822F008EA264 /* UIFont+Additions.swift in Sources */,
+				3ADABDD12664D5AC008EA264 /* UIColor+Additions.swift in Sources */,
 				3ADABD972663DE06008EA264 /* AppDelegate.swift in Sources */,
 				3ADABD992663DE06008EA264 /* SceneDelegate.swift in Sources */,
 			);
