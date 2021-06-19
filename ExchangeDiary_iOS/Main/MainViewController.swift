@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
     let titleCellId = "MainTableViewTitleCell"
     let writingCellId = "MainWritingDiaryListCell"
+    let fullCellId = "MainFullDiaryListCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,9 @@ class MainViewController: UIViewController {
         
         let writingCellNib = UINib(nibName: writingCellId, bundle: nil)
         mainTableView.register(writingCellNib, forCellReuseIdentifier: writingCellId)
+        
+        let fullCellNib = UINib(nibName: fullCellId, bundle: nil)
+        mainTableView.register(fullCellNib, forCellReuseIdentifier: fullCellId)
     }
 }
 
@@ -36,7 +40,7 @@ extension MainViewController: UITableViewDelegate { }
 
 extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +61,9 @@ extension MainViewController: UITableViewDataSource {
             return writingCell
             
         case 2:
-            return .init()
+            guard let fullCell = mainTableView.dequeueReusableCell(withIdentifier: fullCellId, for: indexPath)
+                    as? MainFullDiaryListCell else { return .init() }
+            return fullCell
             
         default:
             return .init()
@@ -70,10 +76,17 @@ extension MainViewController: UITableViewDataSource {
             return 46
         case 1:
             return 458
+        case 2:
+            let line = 1 // 다이어리 개수 (3개단위)
+            if line == 0 {
+                return view.safeAreaLayoutGuide.layoutFrame.height - (46 + 458 + 8)
+            }
+            return CGFloat(90 + 16 + (line * 165) + 24)
         default:
             return 0
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch section {
         case 0:
