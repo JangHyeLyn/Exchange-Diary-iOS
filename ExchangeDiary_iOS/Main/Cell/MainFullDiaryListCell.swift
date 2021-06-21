@@ -9,13 +9,30 @@ import UIKit
 
 class MainFullDiaryListCell: UITableViewCell {
     let groupItemCellId = "MainGroupItemCell"
-//    let diaryItemCellId = ""
+    let diaryItemCellId = "MainSmallDiaryItemCell"
     
     @IBOutlet weak var groupListCollectionView: UICollectionView!
     @IBOutlet weak var diaryListCollectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupCollectionView()
+    }
+
+    @IBAction func touchGroupManageButton(_ sender: Any) {
+        print("그룹관리")
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    private func setupCollectionView() {
+        setupGroupListCollectionView()
+        setupDiaryListCollectionView()
+    }
+    
+    private func setupGroupListCollectionView() {
         groupListCollectionView.delegate = self
         groupListCollectionView.dataSource = self
         
@@ -31,15 +48,25 @@ class MainFullDiaryListCell: UITableViewCell {
         let groupItemCellNib = UINib(nibName: groupItemCellId, bundle: nil)
         groupListCollectionView.register(groupItemCellNib, forCellWithReuseIdentifier: groupItemCellId)
     }
-
-    @IBAction func touchGroupManageButton(_ sender: Any) {
-        print("그룹관리")
-    }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func setupDiaryListCollectionView() {
+        diaryListCollectionView.delegate = self
+        diaryListCollectionView.dataSource = self
+        
+        diaryListCollectionView.collectionViewLayout = {
+            let flowLayout = UICollectionViewFlowLayout()
+            flowLayout.scrollDirection = .vertical
+            flowLayout.itemSize = CGSize(width: 109, height: 157)
+            flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 20, bottom: 16, right: 20)
+            flowLayout.minimumLineSpacing = 2
+            return flowLayout
+        }()
+        
+        let diaryItemCellNib = UINib(nibName: diaryItemCellId, bundle: nil)
+        diaryListCollectionView.register(diaryItemCellNib, forCellWithReuseIdentifier: diaryItemCellId)
     }
 }
+
 extension MainFullDiaryListCell: UICollectionViewDelegate {
 }
 
@@ -55,7 +82,9 @@ extension MainFullDiaryListCell: UICollectionViewDataSource {
                         as? MainGroupItemCell else { return MainGroupItemCell(frame: .zero) }
             return groupItemCell
         default:
-            return MainGroupItemCell(frame: .zero)
+            guard let diaryItemCell = diaryListCollectionView.dequeueReusableCell(withReuseIdentifier: diaryItemCellId, for: indexPath)
+                        as? MainSmallDiaryItemCell else { return MainSmallDiaryItemCell(frame: .zero) }
+            return diaryItemCell
         }
     }
 }

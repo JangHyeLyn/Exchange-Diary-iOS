@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MainSmallDiaryItemCell" reuseIdentifier="MainSmallDiaryItemCell" id="gTV-IL-0wX" customClass="MainSmallDiaryItemCell" customModule="ExchangeDiary_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="109" height="157"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="109" height="157"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ah3-ya-SET">
+                        <rect key="frame" x="0.0" y="0.0" width="109" height="157"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="157" id="T9j-NG-tgs"/>
+                            <constraint firstAttribute="width" constant="109" id="vLm-J3-rbE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일기장 제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Se-VX-Exj">
+                        <rect key="frame" x="27" y="30" width="55.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOJ-xG-iWz">
+                        <rect key="frame" x="32.5" y="126" width="44.5" height="10"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-0G-BNN">
+                                <rect key="frame" x="0.0" y="1.5" width="10" height="7"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="9NZ-WO-uOv"/>
+                                    <constraint firstAttribute="width" constant="10" id="Cv1-tA-gje"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-tB-eg3">
+                                <rect key="frame" x="10" y="0.0" width="13.5" height="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30p" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiB-RA-gJ7">
+                                <rect key="frame" x="23.5" y="0.0" width="21" height="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹명그룹명그룹명" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A7-Ox-wzv">
+                        <rect key="frame" x="12" y="107.5" width="85" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+            <constraints>
+                <constraint firstItem="uOJ-xG-iWz" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="5Ma-SI-gpS"/>
+                <constraint firstItem="0Se-VX-Exj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="5S2-Pm-A7b"/>
+                <constraint firstItem="ah3-ya-SET" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="H74-5X-il7"/>
+                <constraint firstAttribute="trailing" secondItem="ah3-ya-SET" secondAttribute="trailing" id="LY7-wA-GvV"/>
+                <constraint firstAttribute="bottom" secondItem="uOJ-xG-iWz" secondAttribute="bottom" constant="21" id="Mpu-QV-Ohc"/>
+                <constraint firstItem="ah3-ya-SET" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="edH-b5-Zsz"/>
+                <constraint firstItem="uOJ-xG-iWz" firstAttribute="top" secondItem="7A7-Ox-wzv" secondAttribute="bottom" constant="5" id="jDc-FV-U0K"/>
+                <constraint firstItem="0Se-VX-Exj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="19" id="p4X-oO-IWD"/>
+                <constraint firstItem="7A7-Ox-wzv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="te2-gY-CaJ"/>
+                <constraint firstAttribute="bottom" secondItem="ah3-ya-SET" secondAttribute="bottom" id="wgJ-Ti-YR2"/>
+                <constraint firstItem="7A7-Ox-wzv" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="xNx-zz-dv5"/>
+                <constraint firstItem="0Se-VX-Exj" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="xXC-0t-nRB"/>
+            </constraints>
+            <size key="customSize" width="151" height="170"/>
+            <point key="canvasLocation" x="42.753623188405797" y="18.415178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
