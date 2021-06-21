@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A7E5A8526805904002040AF /* MainGroupItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E5A8326805904002040AF /* MainGroupItemCell.swift */; };
+		3A7E5A8626805904002040AF /* MainGroupItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7E5A8426805904002040AF /* MainGroupItemCell.xib */; };
 		3ADABD972663DE06008EA264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABD962663DE06008EA264 /* AppDelegate.swift */; };
 		3ADABD992663DE06008EA264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABD982663DE06008EA264 /* SceneDelegate.swift */; };
 		3ADABD9B2663DE06008EA264 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABD9A2663DE06008EA264 /* MainViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A7E5A8326805904002040AF /* MainGroupItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGroupItemCell.swift; sourceTree = "<group>"; };
+		3A7E5A8426805904002040AF /* MainGroupItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainGroupItemCell.xib; sourceTree = "<group>"; };
 		3ADABD932663DE06008EA264 /* ExchangeDiary_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeDiary_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADABD962663DE06008EA264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADABD982663DE06008EA264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 			children = (
 				3AFD1749267E581B00F52190 /* MainWritingDiaryItemCell.swift */,
 				3AFD174A267E581B00F52190 /* MainWritingDiaryItemCell.xib */,
+				3A7E5A8326805904002040AF /* MainGroupItemCell.swift */,
+				3A7E5A8426805904002040AF /* MainGroupItemCell.xib */,
 			);
 			path = SubCell;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 				3ADABDBE26640DAA008EA264 /* InfoPlist.strings in Resources */,
 				3ADABDA02663DE06008EA264 /* Assets.xcassets in Resources */,
 				3AFD172E267CE6FE00F52190 /* MainWritingDiaryListCell.xib in Resources */,
+				3A7E5A8626805904002040AF /* MainGroupItemCell.xib in Resources */,
 				3AFD1728267B1C0C00F52190 /* MainTableViewTitleCell.xib in Resources */,
 				3ADABD9E2663DE06008EA264 /* Main.storyboard in Resources */,
 				3AFD174C267E581B00F52190 /* MainWritingDiaryItemCell.xib in Resources */,
@@ -253,6 +260,7 @@
 				3AFD1741267E44BA00F52190 /* MainFullDiaryListCell.swift in Sources */,
 				3ADABDD12664D5AC008EA264 /* UIColor+Additions.swift in Sources */,
 				3AFD1727267B1C0C00F52190 /* MainTableViewTitleCell.swift in Sources */,
+				3A7E5A8526805904002040AF /* MainGroupItemCell.swift in Sources */,
 				3ADABD972663DE06008EA264 /* AppDelegate.swift in Sources */,
 				3ADABD992663DE06008EA264 /* SceneDelegate.swift in Sources */,
 			);

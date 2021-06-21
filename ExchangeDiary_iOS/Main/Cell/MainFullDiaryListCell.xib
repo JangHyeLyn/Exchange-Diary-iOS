@@ -31,7 +31,7 @@
                             <action selector="touchGroupManageButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cph-Fd-SEn"/>
                         </connections>
                     </button>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ckS-Hg-Y08">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ckS-Hg-Y08">
                         <rect key="frame" x="0.0" y="65.5" width="320" height="30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
