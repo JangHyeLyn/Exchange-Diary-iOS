@@ -2,12 +2,12 @@
 //  MainWritingDiaryListCell.swift
 //  ExchangeDiary_iOS
 //
-//  Created by 임수현 on 2021/06/18.
+//  Created by 임수현 on 2021/06/21.
 //
 
 import UIKit
 
-class MainWritingDiaryListCell: UITableViewCell {
+class MainWritingDiaryListCell: UICollectionViewCell {
     let writingCellId = "MainWritingDiaryItemCell"
     @IBOutlet weak var writingDiaryCollectionView: UICollectionView!
     
@@ -28,10 +28,6 @@ class MainWritingDiaryListCell: UITableViewCell {
         let writingCellNib = UINib(nibName: writingCellId, bundle: nil)
         writingDiaryCollectionView.register(writingCellNib, forCellWithReuseIdentifier: writingCellId)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }
 
 extension MainWritingDiaryListCell: UICollectionViewDelegate {
@@ -39,7 +35,7 @@ extension MainWritingDiaryListCell: UICollectionViewDelegate {
 
 extension MainWritingDiaryListCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,7 +45,7 @@ extension MainWritingDiaryListCell: UICollectionViewDataSource {
     }
 }
 
-extension MainWritingDiaryItemCell: UICollectionViewDelegateFlowLayout {
+extension MainWritingDiaryListCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 250, height: 370)
     }
@@ -61,6 +57,6 @@ extension MainWritingDiaryItemCell: UICollectionViewDelegateFlowLayout {
     
     // cell 사이의 간격
     func collectionView( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        6
+        12
     }
 }
