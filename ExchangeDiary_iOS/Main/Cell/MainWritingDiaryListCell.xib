@@ -58,6 +58,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="writingDiaryCollectionView" destination="H1Q-ok-9PL" id="7nU-5g-ykc"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="248.4375"/>
         </tableViewCell>
     </objects>

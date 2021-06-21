@@ -25,6 +25,8 @@
 		3AFD172E267CE6FE00F52190 /* MainWritingDiaryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD172C267CE6FE00F52190 /* MainWritingDiaryListCell.xib */; };
 		3AFD1741267E44BA00F52190 /* MainFullDiaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD173F267E44BA00F52190 /* MainFullDiaryListCell.swift */; };
 		3AFD1742267E44BA00F52190 /* MainFullDiaryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD1740267E44BA00F52190 /* MainFullDiaryListCell.xib */; };
+		3AFD174B267E581B00F52190 /* MainWritingDiaryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD1749267E581B00F52190 /* MainWritingDiaryItemCell.swift */; };
+		3AFD174C267E581B00F52190 /* MainWritingDiaryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD174A267E581B00F52190 /* MainWritingDiaryItemCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		3AFD172C267CE6FE00F52190 /* MainWritingDiaryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWritingDiaryListCell.xib; sourceTree = "<group>"; };
 		3AFD173F267E44BA00F52190 /* MainFullDiaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFullDiaryListCell.swift; sourceTree = "<group>"; };
 		3AFD1740267E44BA00F52190 /* MainFullDiaryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainFullDiaryListCell.xib; sourceTree = "<group>"; };
+		3AFD1749267E581B00F52190 /* MainWritingDiaryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWritingDiaryItemCell.swift; sourceTree = "<group>"; };
+		3AFD174A267E581B00F52190 /* MainWritingDiaryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWritingDiaryItemCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +125,18 @@
 				3AFD172C267CE6FE00F52190 /* MainWritingDiaryListCell.xib */,
 				3AFD173F267E44BA00F52190 /* MainFullDiaryListCell.swift */,
 				3AFD1740267E44BA00F52190 /* MainFullDiaryListCell.xib */,
+				3AFD1744267E57D100F52190 /* SubCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		3AFD1744267E57D100F52190 /* SubCell */ = {
+			isa = PBXGroup;
+			children = (
+				3AFD1749267E581B00F52190 /* MainWritingDiaryItemCell.swift */,
+				3AFD174A267E581B00F52190 /* MainWritingDiaryItemCell.xib */,
+			);
+			path = SubCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +213,7 @@
 				3AFD172E267CE6FE00F52190 /* MainWritingDiaryListCell.xib in Resources */,
 				3AFD1728267B1C0C00F52190 /* MainTableViewTitleCell.xib in Resources */,
 				3ADABD9E2663DE06008EA264 /* Main.storyboard in Resources */,
+				3AFD174C267E581B00F52190 /* MainWritingDiaryItemCell.xib in Resources */,
 				3AFD1742267E44BA00F52190 /* MainFullDiaryListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AFD174B267E581B00F52190 /* MainWritingDiaryItemCell.swift in Sources */,
 				3AFD172D267CE6FE00F52190 /* MainWritingDiaryListCell.swift in Sources */,
 				3ADABD9B2663DE06008EA264 /* MainViewController.swift in Sources */,
 				3ADABDDA2666822F008EA264 /* UIFont+Additions.swift in Sources */,
