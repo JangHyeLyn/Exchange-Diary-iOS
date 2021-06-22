@@ -5,9 +5,20 @@
 #
 
 disabled_rules: # 비활성화할 규칙
-    # 라인이 120 글자 이상이면 안됩니다. (https://realm.github.io/SwiftLint/line_length.html)
-    - line_length # XCode 자체 길이제한 룰 사용
+    # force unwrapping을 하지 않습니다. (https://realm.github.io/SwiftLint/force_unwrapping.html)
+    - force_unwrapping
     
+    # force cast를 하지 않습니다 (https://realm.github.io/SwiftLint/force_cast.html)
+    - force_cast
+    
+    # 라인이 120 글자 이상이면 안됩니다. (https://realm.github.io/SwiftLint/line_length.html)
+    - line_length
+    
+    # file의 맨 마지막에는 newline이 있어야합니다. (https://realm.github.io/SwiftLint/trailing_newline.html)
+    - trailing_newline
+    
+    # line의 마지막에는 빈 여백이 있으면 안됩니다. (https://realm.github.io/SwiftLint/trailing_whitespace.html)
+    - trailing_whitespace
 
 opt_in_rules: # 활성화할 규칙
     # 클로저 표현식은 각 중괄호 안에 하나의 공백이 있어야합니다. (https://realm.github.io/SwiftLint/closure_spacing.html)
@@ -21,19 +32,32 @@ opt_in_rules: # 활성화할 규칙
     
     # 암시적 언래핑은 피해야합니다. (https://realm.github.io/SwiftLint/implicitly_unwrapped_optional.html)
     - implicitly_unwrapped_optional
+            
+    # 파일 시작부분에 빈공간을 사용하지 않습니다 (https://realm.github.io/SwiftLint/leading_whitespace.html)
+    - leading_whitespace
     
     # 레거시 함수보다 type.random(in:)를 사용하는 것이 좋습니다. (https://realm.github.io/SwiftLint/legacy_random.html)
     - legacy_random
-    
+        
     # 모든 연산자는 좌 우 에 공백이 있어야 합니다. (https://realm.github.io/SwiftLint/operator_usage_whitespace.html)
     - operator_usage_whitespace
+    
+    # return 화살표에는 양옆으로 공백이 있어야 합니다. (https://realm.github.io/SwiftLint/return_arrow_whitespace.html)
+    - return_arrow_whitespace
+    
+    # 수직으로는 여백이 2줄이상 생기면 안됩니다. (https://realm.github.io/SwiftLint/vertical_whitespace.html)
+    - vertical_whitespace # new
 
+    # 닫는 괄호 앞에는 공백이 있으면 안됩니다. (https://realm.github.io/SwiftLint/vertical_whitespace_closing_braces.html)
+    - vertical_whitespace_closing_braces
+    
+    # 여는 괄호 다음에는 공백이 있으면 안됩니다. (https://realm.github.io/SwiftLint/vertical_whitespace_opening_braces.html)
+    - vertical_whitespace_opening_braces
 
 excluded: # SwiftLint 검사에서 제외할 파일 경로
     - ExchangeDiary_iOS/AppDelegate.swift
     - ExchangeDiary_iOS/SceneDelegate.swift
     - ExchangeDiary_iOS/Extensions/UIColor+Additions.swift
-
 
 indentation: 4
 
