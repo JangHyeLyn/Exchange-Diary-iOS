@@ -9,11 +9,11 @@ import UIKit
 
 class MainSmallDiaryItemCell: UICollectionViewCell {
     // MARK: - UIComponents
-    @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var groupNameLabel: UILabel!
-    @IBOutlet weak var userCountLabel: UILabel!
-    @IBOutlet weak var totalPageLabel: UILabel!
+    @IBOutlet private weak var coverImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var groupNameLabel: UILabel!
+    @IBOutlet private weak var userCountLabel: UILabel!
+    @IBOutlet private weak var totalPageLabel: UILabel!
     
     // MARK: - Variables
     private var coverId: Int = 0 {

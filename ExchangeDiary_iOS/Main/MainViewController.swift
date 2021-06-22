@@ -9,13 +9,15 @@ import UIKit
 
 class MainViewController: UIViewController {
     // MARK: - Components
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     // MARK: - Constants
-    let writingDiaryHeaderViewId = "MainWritingDiaryHeaderView"
-    let writingListCellId = "MainWritingDiaryListCell"
-    let groupListCellId = "MainGroupListCell"
-    let diaryItemCellId = "MainSmallDiaryItemCell"
+    private let writingDiaryHeaderViewId = "MainWritingDiaryHeaderView"
+    private let writingListCellId = "MainWritingDiaryListCell"
+    private let groupListCellId = "MainGroupListCell"
+    private let diaryItemCellId = "MainSmallDiaryItemCell"
+    
+    // MARK: - Variables
     lazy var viewmodel = MainViewModel(observer: self)
     
     // MARK: - Life Cycle

@@ -9,7 +9,7 @@ import UIKit
 
 class MainWritingDiaryListCell: UICollectionViewCell {
     // MARK: - Components
-    @IBOutlet weak var writingDiaryCollectionView: UICollectionView!
+    @IBOutlet private weak var writingDiaryCollectionView: UICollectionView!
     
     // MARK: - Constants
     private let writingCellId = "MainWritingDiaryItemCell"

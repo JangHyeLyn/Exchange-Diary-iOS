@@ -17,16 +17,6 @@ struct Diary {
     var coverId: Int
     var groupId: Int?
     
-//        "id": 101,
-//        "title": "210620",
-//        "now_page": 1,
-//        "total_page": 30,
-//        "user": 11,
-//        "now_writer": 11,
-//        "cover": 1,
-//        "group": null,
-//        "created_at": 1624163083967,
-//        "updated_at": 1624163083967
     init(id: Int, title: String, nowPage: Int = 1, totalPage: Int = 30, userCount: Int = 1, nowWriterId: Int = 1, coverId: Int = 1, groupId: Int? = nil) {
         self.id = id
         self.title = title

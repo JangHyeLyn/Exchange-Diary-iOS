@@ -9,10 +9,10 @@ import UIKit
 
 class MainGroupListCell: UICollectionViewCell {
     // MARK: - UIComponents
-    @IBOutlet weak var groupListCollectionView: UICollectionView!
+    @IBOutlet private weak var groupListCollectionView: UICollectionView!
 
     // MARK: - Constants
-    let groupItemCellId = "MainGroupItemCell"
+    private let groupItemCellId = "MainGroupItemCell"
     
     // MARK: - Variables
     private var _groups = [String]()
