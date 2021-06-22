@@ -58,10 +58,7 @@ extension MainWritingDiaryListCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let writingCell = writingDiaryCollectionView.dequeueReusableCell(withReuseIdentifier: writingCellId, for: indexPath) as? MainWritingDiaryItemCell else { return MainWritingDiaryItemCell(frame: .zero) }
-        let diary = _diaries[indexPath.row]
-        writingCell.titleLabel.text = diary.title
-        writingCell.writer.text = "\(diary.nowWriterId)"
-        writingCell.groupNameLabel.text = diary.groupId == nil ? "" : "\(diary.groupId!)"
+        writingCell.setNewData(_diaries[indexPath.row])
         return writingCell
     }
 }

@@ -8,10 +8,22 @@
 import UIKit
 
 class MainGroupItemCell: UICollectionViewCell {
+    // MARK: - UIComponents
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var indicatorView: UIView!
     
+    // MARK: - Variables
+    private var groupName: String = "그룹명" {
+        didSet { groupNameLabel.text = groupName }
+    }
+
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    // MARK: - Functions
+    func setGroupName(_ name: String) {
+        self.groupName = name
     }
 }

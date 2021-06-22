@@ -68,11 +68,7 @@ class MainViewController: UIViewController {
     private func getDiaryItemCell(indexPath: IndexPath) -> MainSmallDiaryItemCell? {
         guard let cell = getCell(with: diaryItemCellId, for: indexPath) as? MainSmallDiaryItemCell
         else { return nil }
-        let diary = viewmodel.fullDiaries[indexPath.row]
-        cell.titleLabel.text = diary.title
-        cell.groupNameLabel.text = "그룹id:\(diary.groupId)"
-        cell.memberCountLabel.text = "\(diary.userCount). "
-        cell.totalPageLabel.text = "\(diary.totalPage)p"
+        cell.setNewData(viewmodel.fullDiaries[indexPath.row]) // 데이터 전달
         return cell
     }
 }

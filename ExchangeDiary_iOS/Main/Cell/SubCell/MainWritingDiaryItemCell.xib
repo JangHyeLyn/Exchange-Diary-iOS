@@ -33,8 +33,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy8-p7-ZJn">
-                        <rect key="frame" x="95" y="271.5" width="60" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy8-p7-ZJn">
+                        <rect key="frame" x="125" y="291" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -67,11 +67,11 @@
             </constraints>
             <size key="customSize" width="324" height="443"/>
             <connections>
-                <outlet property="backgroundImageView" destination="ikf-As-Xk8" id="6c1-La-rP2"/>
+                <outlet property="coverImageView" destination="ikf-As-Xk8" id="6c1-La-rP2"/>
                 <outlet property="groupNameLabel" destination="hy8-p7-ZJn" id="Kfe-u2-JG3"/>
                 <outlet property="tagsView" destination="zbO-iU-99A" id="v9R-nJ-5sb"/>
                 <outlet property="titleLabel" destination="7vc-fc-poU" id="7aE-o1-CbC"/>
-                <outlet property="writer" destination="5uG-4q-SHe" id="mPj-o5-4YV"/>
+                <outlet property="writerLabel" destination="5uG-4q-SHe" id="mPj-o5-4YV"/>
             </connections>
             <point key="canvasLocation" x="207.24637681159422" y="219.64285714285714"/>
         </collectionViewCell>

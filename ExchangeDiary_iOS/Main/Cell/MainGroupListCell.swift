@@ -65,7 +65,7 @@ extension MainGroupListCell: UICollectionViewDataSource {
         case groupListCollectionView:
             guard let groupItemCell = groupListCollectionView.dequeueReusableCell(withReuseIdentifier: groupItemCellId, for: indexPath)
                         as? MainGroupItemCell else { return MainGroupItemCell(frame: .zero) }
-            groupItemCell.groupNameLabel.text = _groups[indexPath.row]
+            groupItemCell.setGroupName("그룹\(indexPath.row)")
             return groupItemCell
         default:
             return MainGroupItemCell(frame: .zero)
