@@ -8,18 +8,34 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    // MARK: - Components
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - Constants
     let writingDiaryHeaderViewId = "MainWritingDiaryHeaderView"
     let writingListCellId = "MainWritingDiaryListCell"
     let groupListCellId = "MainGroupListCell"
     let diaryItemCellId = "MainSmallDiaryItemCell"
+    lazy var viewmodel = MainViewModel(observer: self)
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
     }
     
+    // MARK: - Actions
+    @IBAction func touchAddDiaryButton(_ sender: Any) {
+        viewmodel.appendWritingDiary()
+    }
+    @IBAction func touchAlertButton(_ sender: Any) {
+        viewmodel.appendGroup()
+    }
+    @IBAction func touchProfileButton(_ sender: Any) {
+        viewmodel.appendFullDiary()
+    }
+    
+    // MARK: - Functions
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,23 +51,19 @@ class MainViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource,
-//extension MainViewController: UICollectionViewDelegate { }
+// MARK: - UICollectionViewDelegate
+extension MainViewController: UICollectionViewDelegate { }
+
+// MARK: - UICollectionViewDataSource
 extension MainViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        3
-    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int { 3 }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            return 1
-        case 1:
-            return 1
-        case 2:
-            return 10
-        default:
-            return 0
+        case 0: return 1
+        case 1: return 1
+        case 2: return viewmodel.fullDiaries.count
+        default: return 0
         }
     }
     
@@ -72,6 +84,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     // cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -116,13 +129,20 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
             return 0
         }
     }
+}
+
+// MARK: - MainViewModelObserver
+extension MainViewController: MainViewModelObserver {
+    func changedWritingDiaries() {
+        print("writing Diaries Changed")
+    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        switch section {
-        case 0:
-            return CGSize(width: collectionView.frame.width, height: 12)
-        default:
-            return .zero
-        }
+    func changedGroups() {
+        print("Groups Changed")
+    }
+    
+    func changedFullDiaries() {
+        print("Full Diaries Changed")
+        collectionView.reloadSections(IndexSet(integer: 2))
     }
 }
