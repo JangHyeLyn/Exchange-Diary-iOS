@@ -15,8 +15,8 @@ class MainGroupListCell: UICollectionViewCell {
     private let groupItemCellId = "MainGroupItemCell"
     
     // MARK: - Variables
-    private var _groups = [String]()
-    var groups: [String] {
+    private var _groups = [DiaryGroup]()
+    var groups: [DiaryGroup] {
         @available(*, unavailable)
         get { _groups }
         set(newValue) {
@@ -65,7 +65,7 @@ extension MainGroupListCell: UICollectionViewDataSource {
         case groupListCollectionView:
             guard let groupItemCell = groupListCollectionView.dequeueReusableCell(withReuseIdentifier: groupItemCellId, for: indexPath)
                         as? MainGroupItemCell else { return MainGroupItemCell(frame: .zero) }
-            groupItemCell.setGroupName("그룹\(indexPath.row)")
+            groupItemCell.setNewData(_groups[indexPath.row])
             return groupItemCell
         default:
             return MainGroupItemCell(frame: .zero)

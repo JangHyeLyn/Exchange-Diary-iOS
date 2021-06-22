@@ -23,7 +23,7 @@ class MainGroupItemCell: UICollectionViewCell {
     }
 
     // MARK: - Functions
-    func setGroupName(_ name: String) {
-        self.groupName = name
+    func setNewData(_ data: DiaryGroup) {
+        groupName = data.title
     }
 }

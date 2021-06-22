@@ -17,18 +17,18 @@ class MainViewModel {
     weak var observer: MainViewModelObserver?
     
     // MARK: - Data
-    private var _writingDiaries: [Diary] = [.dummy1, .dummy2, .dummy3] {
+    private var _writingDiaries: [Diary] = [.DUMMY1, .DUMMY2, .DUMMY3] {
         didSet { observer?.changedWritingDiaries() }
     }
-    private var _groups: [String] = ["전체"] {
+    private var _groups: [DiaryGroup] = [.TOTAL, .UNSPECIFIED] {
         didSet { observer?.changedGroups() }
     }
-    private var _fullDiaries: [Diary] = [.dummy1, .dummy2, .dummy3] {
+    private var _fullDiaries: [Diary] = [.DUMMY1, .DUMMY2, .DUMMY3] {
         didSet { observer?.changedFullDiaries() }
     }
     
     var writingDiaries: [Diary] { _writingDiaries }
-    var groups: [String] { _groups }
+    var groups: [DiaryGroup] { _groups }
     var fullDiaries: [Diary] { _fullDiaries }
     
     // MARK: - Initializer
@@ -42,7 +42,7 @@ class MainViewModel {
         _writingDiaries.append(diary)
     }
     func appendGroup() {
-        _groups.append("그룹\(_groups.count)")
+        _groups.append(DiaryGroup(id: _groups.count - 1, title: "그룹\(_groups.count - 1)"))
     }
     func appendFullDiary() {
         let diary = Diary(id: fullDiaries.count + 1, title: "Diary \(writingDiaries.count + 1)")
