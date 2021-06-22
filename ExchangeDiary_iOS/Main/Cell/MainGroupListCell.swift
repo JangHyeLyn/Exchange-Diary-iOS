@@ -8,14 +8,29 @@
 import UIKit
 
 class MainGroupListCell: UICollectionViewCell {
+    // MARK: - UIComponents
+    @IBOutlet weak var groupListCollectionView: UICollectionView!
+
+    // MARK: - Constants
     let groupItemCellId = "MainGroupItemCell"
     
-    @IBOutlet weak var groupListCollectionView: UICollectionView!
-    
+    // MARK: - Variables
+    private var _groups = [String]()
+    var groups: [String] {
+        @available(*, unavailable)
+        get { _groups }
+        set(newValue) {
+            _groups = newValue // 전달받은 데이터
+            groupListCollectionView.reloadData() // collectionView 리로드
+        }
+    }
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
     }
+    
+    // MARK: - Functions
     private func setupCollectionView() {
         groupListCollectionView.delegate = self
         groupListCollectionView.dataSource = self
@@ -42,7 +57,7 @@ extension MainGroupListCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        _groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,6 +65,7 @@ extension MainGroupListCell: UICollectionViewDataSource {
         case groupListCollectionView:
             guard let groupItemCell = groupListCollectionView.dequeueReusableCell(withReuseIdentifier: groupItemCellId, for: indexPath)
                         as? MainGroupItemCell else { return MainGroupItemCell(frame: .zero) }
+            groupItemCell.groupNameLabel.text = _groups[indexPath.row]
             return groupItemCell
         default:
             return MainGroupItemCell(frame: .zero)

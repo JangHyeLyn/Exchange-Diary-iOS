@@ -62,6 +62,7 @@ class MainViewController: UIViewController {
     private func getGroupListCell(indexPath: IndexPath) -> MainGroupListCell? {
         guard let cell = getCell(with: groupListCellId, for: indexPath) as? MainGroupListCell
         else { return nil }
+        cell.groups = viewmodel.groups // 데이터 전달
         return cell
     }
     private func getDiaryItemCell(indexPath: IndexPath) -> MainSmallDiaryItemCell? {
@@ -75,12 +76,12 @@ class MainViewController: UIViewController {
 extension MainViewController: MainViewModelObserver {
     func changedWritingDiaries() {
         print("writing Diaries Changed")
-        collectionView.reloadItems(at: [IndexPath(row: 0, section: 0)])
+        collectionView.reloadSections(IndexSet(integer: 0))
     }
     
     func changedGroups() {
         print("Groups Changed")
-        collectionView.reloadItems(at: [IndexPath(row: 0, section: 1)])
+        collectionView.reloadSections(IndexSet(integer: 1))
     }
     
     func changedFullDiaries() {
@@ -98,26 +99,23 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return 1
-        case 1: return 1
-        case 2: return viewmodel.fullDiaries.count
-        default: return 0
+        case 2:
+            return viewmodel.fullDiaries.count
+        default:
+            return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0: // 작성중 일기
-            guard let writingItemCell = getWritingListCell(indexPath: indexPath) else { return .init() }
-            return writingItemCell
+            return getWritingListCell(indexPath: indexPath) ?? .init()
         case 1: // (일기장 목록) 그룹
-            guard let groupListCell = getGroupListCell(indexPath: indexPath) else { return .init() }
-            return groupListCell
+            return getGroupListCell(indexPath: indexPath) ?? .init()
         case 2: // (일기장 목록) 전체 일기
-            guard let diaryItemCell = getDiaryItemCell(indexPath: indexPath) else { return .init() }
-            return diaryItemCell
+            return getDiaryItemCell(indexPath: indexPath) ?? .init()
         default:
-            return MainGroupItemCell(frame: .zero)
+            return .init()
         }
     }
 }

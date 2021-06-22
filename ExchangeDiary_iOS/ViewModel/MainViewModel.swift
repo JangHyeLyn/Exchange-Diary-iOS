@@ -20,7 +20,7 @@ class MainViewModel {
     private var _writingDiaries: [Diary] = [.dummy1, .dummy2, .dummy3] {
         didSet { observer?.changedWritingDiaries() }
     }
-    private var _groups: [Int: String] = [:] {
+    private var _groups: [String] = ["전체"] {
         didSet { observer?.changedGroups() }
     }
     private var _fullDiaries: [Diary] = [.dummy1, .dummy2, .dummy3] {
@@ -28,7 +28,7 @@ class MainViewModel {
     }
     
     var writingDiaries: [Diary] { _writingDiaries }
-    var groups: [Int: String] { _groups }
+    var groups: [String] { _groups }
     var fullDiaries: [Diary] { _fullDiaries }
     
     // MARK: - Initializer
@@ -38,13 +38,14 @@ class MainViewModel {
     
     // MARK: - Functions
     func appendWritingDiary() {
-        _writingDiaries.append(.dummy1)
-        print(writingDiaries)
+        let diary = Diary(id: writingDiaries.count + 1, title: "Dummy Diary \(writingDiaries.count + 1)")
+        _writingDiaries.append(diary)
     }
     func appendGroup() {
-        _groups[groups.count] = "새로운그룹"
+        _groups.append("그룹\(_groups.count)")
     }
     func appendFullDiary() {
-        _fullDiaries.append(.dummy1)
+        let diary = Diary(id: fullDiaries.count + 1, title: "Dummy Diary \(writingDiaries.count + 1)")
+        _fullDiaries.append(diary)
     }
 }
