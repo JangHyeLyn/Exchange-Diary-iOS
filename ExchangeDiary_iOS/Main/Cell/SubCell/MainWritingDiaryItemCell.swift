@@ -12,7 +12,7 @@ class MainWritingDiaryItemCell: UICollectionViewCell {
     @IBOutlet weak var tagsView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var groupNameLabel: UILabel!
-    @IBOutlet weak var nextTurnLabel: UILabel!
+    @IBOutlet weak var writer: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

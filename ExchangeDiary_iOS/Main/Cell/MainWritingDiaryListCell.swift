@@ -8,9 +8,25 @@
 import UIKit
 
 class MainWritingDiaryListCell: UICollectionViewCell {
-    let writingCellId = "MainWritingDiaryItemCell"
+    // MARK: - Components
     @IBOutlet weak var writingDiaryCollectionView: UICollectionView!
     
+    // MARK: - Constants
+    private let writingCellId = "MainWritingDiaryItemCell"
+    
+    // MARK: - Variables
+    private var _diaries = [Diary]()
+    var diaries: [Diary] {
+        @available(*, unavailable)
+        get { _diaries }
+        
+        set(newValue) {
+            _diaries = newValue // 전달받은 데이터
+            writingDiaryCollectionView.reloadData() // collectionView 리로드
+        }
+    }
+        
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         writingDiaryCollectionView.delegate = self
@@ -30,21 +46,27 @@ class MainWritingDiaryListCell: UICollectionViewCell {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension MainWritingDiaryListCell: UICollectionViewDelegate {
 }
 
+// MARK: - UICollectionViewDataSource
 extension MainWritingDiaryListCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        _diaries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let writingCell = writingDiaryCollectionView.dequeueReusableCell(withReuseIdentifier: writingCellId, for: indexPath)
-                    as? MainWritingDiaryItemCell else { return MainWritingDiaryItemCell(frame: .zero) }
+        guard let writingCell = writingDiaryCollectionView.dequeueReusableCell(withReuseIdentifier: writingCellId, for: indexPath) as? MainWritingDiaryItemCell else { return MainWritingDiaryItemCell(frame: .zero) }
+        let diary = _diaries[indexPath.row]
+        writingCell.titleLabel.text = diary.title
+        writingCell.writer.text = "\(diary.nowWriterId)"
+        writingCell.groupNameLabel.text = diary.groupId == nil ? "" : "\(diary.groupId!)"
         return writingCell
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension MainWritingDiaryListCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 250, height: 370)

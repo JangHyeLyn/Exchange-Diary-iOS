@@ -49,6 +49,44 @@ class MainViewController: UIViewController {
         let diaryItemCellNib = UINib(nibName: diaryItemCellId, bundle: nil)
         collectionView.register(diaryItemCellNib, forCellWithReuseIdentifier: diaryItemCellId)
     }
+    
+    private func getCell(with reuseIdentifier: String, for indexPath: IndexPath) -> UICollectionViewCell {
+        collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    }
+    private func getWritingListCell(indexPath: IndexPath) -> MainWritingDiaryListCell? {
+        guard let cell = getCell(with: writingListCellId, for: indexPath) as? MainWritingDiaryListCell
+        else { return nil }
+        cell.diaries = viewmodel.writingDiaries // 데이터 전달
+        return cell
+    }
+    private func getGroupListCell(indexPath: IndexPath) -> MainGroupListCell? {
+        guard let cell = getCell(with: groupListCellId, for: indexPath) as? MainGroupListCell
+        else { return nil }
+        return cell
+    }
+    private func getDiaryItemCell(indexPath: IndexPath) -> MainSmallDiaryItemCell? {
+        guard let cell = getCell(with: diaryItemCellId, for: indexPath) as? MainSmallDiaryItemCell
+        else { return nil }
+        return cell
+    }
+}
+
+// MARK: - MainViewModelObserver
+extension MainViewController: MainViewModelObserver {
+    func changedWritingDiaries() {
+        print("writing Diaries Changed")
+        collectionView.reloadItems(at: [IndexPath(row: 0, section: 0)])
+    }
+    
+    func changedGroups() {
+        print("Groups Changed")
+        collectionView.reloadItems(at: [IndexPath(row: 0, section: 1)])
+    }
+    
+    func changedFullDiaries() {
+        print("Full Diaries Changed")
+        collectionView.reloadSections(IndexSet(integer: 2))
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -70,13 +108,13 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0: // 작성중 일기
-            let writingItemCell = collectionView.dequeueReusableCell(withReuseIdentifier: writingListCellId, for: indexPath)
+            guard let writingItemCell = getWritingListCell(indexPath: indexPath) else { return .init() }
             return writingItemCell
         case 1: // (일기장 목록) 그룹
-            let groupListCell = collectionView.dequeueReusableCell(withReuseIdentifier: groupListCellId, for: indexPath)
+            guard let groupListCell = getGroupListCell(indexPath: indexPath) else { return .init() }
             return groupListCell
         case 2: // (일기장 목록) 전체 일기
-            let diaryItemCell = collectionView.dequeueReusableCell(withReuseIdentifier: diaryItemCellId, for: indexPath)
+            guard let diaryItemCell = getDiaryItemCell(indexPath: indexPath) else { return .init() }
             return diaryItemCell
         default:
             return MainGroupItemCell(frame: .zero)
@@ -128,21 +166,5 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         default:
             return 0
         }
-    }
-}
-
-// MARK: - MainViewModelObserver
-extension MainViewController: MainViewModelObserver {
-    func changedWritingDiaries() {
-        print("writing Diaries Changed")
-    }
-    
-    func changedGroups() {
-        print("Groups Changed")
-    }
-    
-    func changedFullDiaries() {
-        print("Full Diaries Changed")
-        collectionView.reloadSections(IndexSet(integer: 2))
     }
 }

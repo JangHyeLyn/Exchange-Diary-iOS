@@ -27,9 +27,9 @@ class MainViewModel {
         didSet { observer?.changedFullDiaries() }
     }
     
-    var writingDiaries: [Diary] { get { _writingDiaries } }
-    var groups: [Int: String] { get { _groups } }
-    var fullDiaries: [Diary] { get { _fullDiaries } }
+    var writingDiaries: [Diary] { _writingDiaries }
+    var groups: [Int: String] { _groups }
+    var fullDiaries: [Diary] { _fullDiaries }
     
     // MARK: - Initializer
     init(observer: MainViewModelObserver?) {
@@ -39,6 +39,7 @@ class MainViewModel {
     // MARK: - Functions
     func appendWritingDiary() {
         _writingDiaries.append(.dummy1)
+        print(writingDiaries)
     }
     func appendGroup() {
         _groups[groups.count] = "새로운그룹"
