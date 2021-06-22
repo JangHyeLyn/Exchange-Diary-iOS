@@ -45,7 +45,7 @@ class MainViewModel {
         _groups.append("그룹\(_groups.count)")
     }
     func appendFullDiary() {
-        let diary = Diary(id: fullDiaries.count + 1, title: "Dummy Diary \(writingDiaries.count + 1)")
+        let diary = Diary(id: fullDiaries.count + 1, title: "Diary \(writingDiaries.count + 1)")
         _fullDiaries.append(diary)
     }
 }

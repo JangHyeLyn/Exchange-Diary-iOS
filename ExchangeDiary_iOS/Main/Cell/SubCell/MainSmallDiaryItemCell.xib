@@ -81,6 +81,13 @@
                 <constraint firstItem="0Se-VX-Exj" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="xXC-0t-nRB"/>
             </constraints>
             <size key="customSize" width="151" height="170"/>
+            <connections>
+                <outlet property="coverImageView" destination="ah3-ya-SET" id="980-nG-6Fl"/>
+                <outlet property="groupNameLabel" destination="7A7-Ox-wzv" id="eqK-G7-vff"/>
+                <outlet property="memberCountLabel" destination="QbO-tB-eg3" id="UNs-Sw-13L"/>
+                <outlet property="titleLabel" destination="0Se-VX-Exj" id="krW-wl-RD7"/>
+                <outlet property="totalPageLabel" destination="IiB-RA-gJ7" id="3mK-OF-XJ4"/>
+            </connections>
             <point key="canvasLocation" x="42.753623188405797" y="18.415178571428569"/>
         </collectionViewCell>
     </objects>

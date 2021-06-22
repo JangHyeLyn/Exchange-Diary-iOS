@@ -8,6 +8,14 @@
 import UIKit
 
 class MainSmallDiaryItemCell: UICollectionViewCell {
+    // MARK: - UIComponents
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var memberCountLabel: UILabel!
+    @IBOutlet weak var totalPageLabel: UILabel!
+    
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
     }
