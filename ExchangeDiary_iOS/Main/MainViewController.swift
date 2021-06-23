@@ -55,23 +55,37 @@ class MainViewController: UIViewController {
     private func getCell(with reuseIdentifier: String, for indexPath: IndexPath) -> UICollectionViewCell {
         collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     }
+    
     private func getWritingListCell(indexPath: IndexPath) -> MainWritingDiaryListCell? {
-        guard let cell = getCell(with: writingListCellId, for: indexPath) as? MainWritingDiaryListCell
-        else { return nil }
-        cell.diaries = viewmodel.writingDiaries // 데이터 전달
+        guard let cell = getCell(with: writingListCellId, for: indexPath) as? MainWritingDiaryListCell else { return nil }
+        cell.setup(data: viewmodel.writingDiaries) { [weak self] item in
+            guard let self = self else { return }
+            self.presentDiaryPageController(diaryId: self.viewmodel.writingDiaries[item].id)
+        }
         return cell
     }
+    
     private func getGroupListCell(indexPath: IndexPath) -> MainGroupListCell? {
-        guard let cell = getCell(with: groupListCellId, for: indexPath) as? MainGroupListCell
-        else { return nil }
-        cell.groups = viewmodel.groups // 데이터 전달
+        guard let cell = getCell(with: groupListCellId, for: indexPath) as? MainGroupListCell else { return nil }
+        cell.setup(data: viewmodel.groups) { [weak self] item in
+            guard let self = self else { return }
+            self.showGroupList(groupId: self.viewmodel.groups[item].id)
+        }
         return cell
     }
+    
     private func getDiaryItemCell(indexPath: IndexPath) -> MainSmallDiaryItemCell? {
         guard let cell = getCell(with: diaryItemCellId, for: indexPath) as? MainSmallDiaryItemCell
         else { return nil }
-        cell.setNewData(viewmodel.fullDiaries[indexPath.row]) // 데이터 전달
+        cell.setup(data: viewmodel.fullDiaries[indexPath.item])
         return cell
+    }
+    
+    private func presentDiaryPageController(diaryId: Int) {
+        print("일기장\(diaryId) 상세정보")
+    }
+    private func showGroupList(groupId: Int) {
+        print("그룹\(groupId)에 해당하는 일기장들 보여주기")
     }
 }
 
@@ -94,7 +108,18 @@ extension MainViewController: MainViewModelObserver {
 }
 
 // MARK: - UICollectionViewDelegate
-extension MainViewController: UICollectionViewDelegate { }
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 2:
+            // 다이어리 선택 -> 상세페이지
+            let selectedId = viewmodel.fullDiaries[indexPath.item].id
+            presentDiaryPageController(diaryId: selectedId)
+        default:
+            return
+        }
+    }
+}
 
 // MARK: - UICollectionViewDataSource
 extension MainViewController: UICollectionViewDataSource {

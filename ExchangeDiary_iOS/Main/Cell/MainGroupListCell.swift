@@ -24,6 +24,8 @@ class MainGroupListCell: UICollectionViewCell {
             groupListCollectionView.reloadData() // collectionView 리로드
         }
     }
+    private var didSelectItemAt: ((Int) -> Void) = { _ in }
+    
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +33,11 @@ class MainGroupListCell: UICollectionViewCell {
     }
     
     // MARK: - Functions
+    func setup(data: [DiaryGroup], selectAction: @escaping (Int) -> Void) {
+        self.groups = data
+        self.didSelectItemAt = selectAction
+    }
+    
     private func setupCollectionView() {
         groupListCollectionView.delegate = self
         groupListCollectionView.dataSource = self
@@ -49,7 +56,11 @@ class MainGroupListCell: UICollectionViewCell {
     }
 }
 
-extension MainGroupListCell: UICollectionViewDelegate { }
+extension MainGroupListCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectItemAt(indexPath.item)
+    }
+}
 
 extension MainGroupListCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {

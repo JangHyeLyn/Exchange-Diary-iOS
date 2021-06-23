@@ -25,6 +25,9 @@ class MainWritingDiaryListCell: UICollectionViewCell {
             writingDiaryCollectionView.reloadData() // collectionView 리로드
         }
     }
+    
+    // 아이템 선택 시 호출될 클로저
+    private var didSelectItemAt: ((Int) -> Void) = { _ in }
         
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -44,10 +47,19 @@ class MainWritingDiaryListCell: UICollectionViewCell {
         let writingCellNib = UINib(nibName: writingCellId, bundle: nil)
         writingDiaryCollectionView.register(writingCellNib, forCellWithReuseIdentifier: writingCellId)
     }
+    
+    // MARK: - Functions
+    func setup(data: [Diary], selectAction: @escaping (Int) -> Void) {
+        self.diaries = data
+        self.didSelectItemAt = selectAction
+    }
 }
 
 // MARK: - UICollectionViewDelegate
 extension MainWritingDiaryListCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectItemAt(indexPath.item)
+    }
 }
 
 // MARK: - UICollectionViewDataSource

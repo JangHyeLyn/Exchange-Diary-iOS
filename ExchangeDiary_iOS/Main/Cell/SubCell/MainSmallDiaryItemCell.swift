@@ -38,7 +38,7 @@ class MainSmallDiaryItemCell: UICollectionViewCell {
     }
     
     // MARK: - Method
-    func setNewData(_ data: Diary) {
+    func setup(data: Diary) {
         title = data.title
         userCount = data.userCount
         page = data.totalPage
