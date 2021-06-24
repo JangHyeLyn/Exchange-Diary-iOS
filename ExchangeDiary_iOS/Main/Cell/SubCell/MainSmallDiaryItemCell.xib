@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOJ-xG-iWz">
-                        <rect key="frame" x="32.5" y="126" width="44.5" height="10"/>
+                        <rect key="frame" x="33.5" y="126" width="42.5" height="10"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-0G-BNN">
                                 <rect key="frame" x="0.0" y="1.5" width="10" height="7"/>
@@ -42,22 +42,22 @@
                                     <constraint firstAttribute="width" constant="10" id="Cv1-tA-gje"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-tB-eg3">
-                                <rect key="frame" x="10" y="0.0" width="13.5" height="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-tB-eg3">
+                                <rect key="frame" x="10" y="0.0" width="11.5" height="10"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30p" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiB-RA-gJ7">
-                                <rect key="frame" x="23.5" y="0.0" width="21" height="10"/>
+                                <rect key="frame" x="21.5" y="0.0" width="21" height="10"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹명그룹명그룹명" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A7-Ox-wzv">
-                        <rect key="frame" x="12" y="107.5" width="85" height="13.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A7-Ox-wzv">
+                        <rect key="frame" x="54.5" y="121" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -81,6 +81,13 @@
                 <constraint firstItem="0Se-VX-Exj" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="xXC-0t-nRB"/>
             </constraints>
             <size key="customSize" width="151" height="170"/>
+            <connections>
+                <outlet property="coverImageView" destination="ah3-ya-SET" id="980-nG-6Fl"/>
+                <outlet property="groupNameLabel" destination="7A7-Ox-wzv" id="eqK-G7-vff"/>
+                <outlet property="titleLabel" destination="0Se-VX-Exj" id="krW-wl-RD7"/>
+                <outlet property="totalPageLabel" destination="IiB-RA-gJ7" id="3mK-OF-XJ4"/>
+                <outlet property="userCountLabel" destination="QbO-tB-eg3" id="UNs-Sw-13L"/>
+            </connections>
             <point key="canvasLocation" x="42.753623188405797" y="18.415178571428569"/>
         </collectionViewCell>
     </objects>

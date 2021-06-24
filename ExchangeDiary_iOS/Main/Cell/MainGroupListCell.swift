@@ -8,14 +8,36 @@
 import UIKit
 
 class MainGroupListCell: UICollectionViewCell {
-    let groupItemCellId = "MainGroupItemCell"
+    // MARK: - UIComponents
+    @IBOutlet private weak var groupListCollectionView: UICollectionView!
+
+    // MARK: - Constants
+    private let groupItemCellId = "MainGroupItemCell"
     
-    @IBOutlet weak var groupListCollectionView: UICollectionView!
+    // MARK: - Variables
+    private var _groups = [DiaryGroup]()
+    var groups: [DiaryGroup] {
+        @available(*, unavailable)
+        get { _groups }
+        set(newValue) {
+            _groups = newValue // 전달받은 데이터
+            groupListCollectionView.reloadData() // collectionView 리로드
+        }
+    }
+    private var didSelectItemAt: ((Int) -> Void) = { _ in }
     
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
     }
+    
+    // MARK: - Functions
+    func setup(data: [DiaryGroup], selectAction: @escaping (Int) -> Void) {
+        self.groups = data
+        self.didSelectItemAt = selectAction
+    }
+    
     private func setupCollectionView() {
         groupListCollectionView.delegate = self
         groupListCollectionView.dataSource = self
@@ -34,7 +56,11 @@ class MainGroupListCell: UICollectionViewCell {
     }
 }
 
-extension MainGroupListCell: UICollectionViewDelegate { }
+extension MainGroupListCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectItemAt(indexPath.item)
+    }
+}
 
 extension MainGroupListCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -42,7 +68,7 @@ extension MainGroupListCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        _groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,6 +76,7 @@ extension MainGroupListCell: UICollectionViewDataSource {
         case groupListCollectionView:
             guard let groupItemCell = groupListCollectionView.dequeueReusableCell(withReuseIdentifier: groupItemCellId, for: indexPath)
                         as? MainGroupItemCell else { return MainGroupItemCell(frame: .zero) }
+            groupItemCell.setNewData(_groups[indexPath.row])
             return groupItemCell
         default:
             return MainGroupItemCell(frame: .zero)

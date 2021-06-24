@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="교환일기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMW-rg-KzN">
-                                        <rect key="frame" x="20" y="12.5" width="62.5" height="21"/>
+                                        <rect key="frame" x="20" y="12.5" width="266" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,6 +44,9 @@
                                             <constraint firstAttribute="width" constant="24" id="e5S-2F-MwN"/>
                                         </constraints>
                                         <state key="normal" title="1"/>
+                                        <connections>
+                                            <action selector="touchAddDiaryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KHg-Mv-gQZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crf-Ma-5fJ">
                                         <rect key="frame" x="334" y="11" width="24" height="24"/>
@@ -52,6 +55,9 @@
                                             <constraint firstAttribute="width" constant="24" id="icJ-w4-c3k"/>
                                         </constraints>
                                         <state key="normal" title="2"/>
+                                        <connections>
+                                            <action selector="touchAlertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s5c-ud-tDu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3po-dc-rdE">
                                         <rect key="frame" x="370" y="11" width="24" height="24"/>
@@ -60,6 +66,9 @@
                                             <constraint firstAttribute="height" constant="24" id="tHU-l5-PJR"/>
                                         </constraints>
                                         <state key="normal" title="3"/>
+                                        <connections>
+                                            <action selector="touchProfileButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ma-GN-vAg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,6 +78,7 @@
                                     <constraint firstItem="xMW-rg-KzN" firstAttribute="centerY" secondItem="12u-Q5-Doe" secondAttribute="centerY" id="Cex-Px-AM0"/>
                                     <constraint firstItem="3po-dc-rdE" firstAttribute="centerY" secondItem="12u-Q5-Doe" secondAttribute="centerY" id="FP1-ZI-P4d"/>
                                     <constraint firstItem="Crf-Ma-5fJ" firstAttribute="centerY" secondItem="3po-dc-rdE" secondAttribute="centerY" id="KbF-Pg-kAi"/>
+                                    <constraint firstItem="5dl-m3-2LY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xMW-rg-KzN" secondAttribute="trailing" constant="12" id="X4s-48-bDu"/>
                                     <constraint firstItem="5dl-m3-2LY" firstAttribute="centerY" secondItem="Crf-Ma-5fJ" secondAttribute="centerY" id="XHl-Yw-WLn"/>
                                     <constraint firstItem="3po-dc-rdE" firstAttribute="leading" secondItem="Crf-Ma-5fJ" secondAttribute="trailing" constant="12" id="m2F-uE-C6X"/>
                                     <constraint firstAttribute="height" constant="46" id="tuD-ol-FKE"/>
