@@ -20,12 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if isFirstExcute() {
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
-            window.rootViewController = viewController
+            window.rootViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+        } else if isUserTokenEmpty() {
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            window.rootViewController = storyboard.instantiateViewController(withIdentifier: "Onboarding_login")
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-            window.rootViewController = viewController
+            window.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
         }
         self.window = window
         window.makeKeyAndVisible()

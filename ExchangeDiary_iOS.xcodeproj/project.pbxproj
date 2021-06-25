@@ -23,6 +23,7 @@
 		3AB961662684BE7000D912A9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961652684BE7000D912A9 /* OnboardingViewController.swift */; };
 		3AB9616B2684BEAE00D912A9 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9616A2684BEAE00D912A9 /* OnboardingPageViewController.swift */; };
 		3AB961722685DB3700D912A9 /* SceneDelegate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961712685DB3700D912A9 /* SceneDelegate+Additions.swift */; };
+		3AB961762685DFF400D912A9 /* Bundel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961752685DFF400D912A9 /* Bundel+Additions.swift */; };
 		3ADABD972663DE06008EA264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABD962663DE06008EA264 /* AppDelegate.swift */; };
 		3ADABD992663DE06008EA264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABD982663DE06008EA264 /* SceneDelegate.swift */; };
 		3ADABD9B2663DE06008EA264 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABD9A2663DE06008EA264 /* MainViewController.swift */; };
@@ -56,6 +57,7 @@
 		3AB961652684BE7000D912A9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3AB9616A2684BEAE00D912A9 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		3AB961712685DB3700D912A9 /* SceneDelegate+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Additions.swift"; sourceTree = "<group>"; };
+		3AB961752685DFF400D912A9 /* Bundel+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundel+Additions.swift"; sourceTree = "<group>"; };
 		3ADABD932663DE06008EA264 /* ExchangeDiary_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeDiary_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADABD962663DE06008EA264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADABD982663DE06008EA264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				3ADABDD02664D5AC008EA264 /* UIColor+Additions.swift */,
 				3ADABDD92666822F008EA264 /* UIFont+Additions.swift */,
 				3AB961712685DB3700D912A9 /* SceneDelegate+Additions.swift */,
+				3AB961752685DFF400D912A9 /* Bundel+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AFD174B267E581B00F52190 /* MainWritingDiaryItemCell.swift in Sources */,
+				3AB961762685DFF400D912A9 /* Bundel+Additions.swift in Sources */,
 				3AB9616B2684BEAE00D912A9 /* OnboardingPageViewController.swift in Sources */,
 				3ADABD9B2663DE06008EA264 /* MainViewController.swift in Sources */,
 				3A7E5A8F26805E7E002040AF /* MainSmallDiaryItemCell.swift in Sources */,
