@@ -11,4 +11,11 @@ class OnboardingLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    // MARK: - Actions
+    @IBAction func touchAppleLogin(_ sender: Any) {
+        print("애플로그인")
+    }
+    @IBAction func touchKakaoLogin(_ sender: Any) {
+        print("카카오로그인")
+    }
 }

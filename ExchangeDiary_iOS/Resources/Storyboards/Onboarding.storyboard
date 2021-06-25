@@ -12,7 +12,6 @@
         <!--Onboarding View Controller-->
         <scene sceneID="MOK-CV-HmK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IH3-JB-dyA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Onboarding" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RxD-A0-cXA" customClass="OnboardingViewController" customModule="ExchangeDiary_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NkM-3j-fko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -45,6 +44,7 @@
                         <outlet property="pageControl" destination="6OB-Tm-4YN" id="wS8-pV-FOa"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IH3-JB-dyA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="28.794642857142854"/>
         </scene>
@@ -163,8 +163,8 @@
         <!--Onboarding Page View Controller-->
         <scene sceneID="IAj-Kh-UfL">
             <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="d8f-sY-ULv" customClass="OnboardingPageViewController" customModule="ExchangeDiary_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFD-GS-LJ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="d8f-sY-ULv" customClass="OnboardingPageViewController" customModule="ExchangeDiary_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="528" y="-20"/>
         </scene>
@@ -224,16 +224,16 @@
             </objects>
             <point key="canvasLocation" x="1146" y="801"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding Login View Controller-->
         <scene sceneID="ePp-zt-xm6">
             <objects>
-                <viewController storyboardIdentifier="Onboarding_login" id="k1g-Mn-np6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding_login" id="k1g-Mn-np6" customClass="OnboardingLoginViewController" customModule="ExchangeDiary_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p6O-15-1HQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xe0-up-9kV">
-                                <rect key="frame" x="0.0" y="194.5" width="414" height="517"/>
+                                <rect key="frame" x="0.0" y="214.5" width="414" height="477"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yfi-1Y-K5m">
                                         <rect key="frame" x="169.5" y="120" width="75" height="75"/>
@@ -244,12 +244,11 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5s-xR-9VK">
-                                        <rect key="frame" x="168" y="417" width="78" height="30"/>
+                                        <rect key="frame" x="47" y="417" width="320" height="30"/>
                                         <state key="normal" title="카카오로그인"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEc-R6-Snv">
-                                        <rect key="frame" x="168" y="455" width="78" height="30"/>
-                                        <state key="normal" title="애플로그인"/>
+                                        <connections>
+                                            <action selector="touchKakaoLogin:" destination="k1g-Mn-np6" eventType="touchUpInside" id="luO-Bz-4WB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="교환일기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Ir-AjC">
                                         <rect key="frame" x="157" y="203" width="100" height="26"/>
@@ -257,19 +256,28 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEc-R6-Snv">
+                                        <rect key="frame" x="47" y="379" width="320" height="30"/>
+                                        <state key="normal" title="애플로그인"/>
+                                        <connections>
+                                            <action selector="touchAppleLogin:" destination="k1g-Mn-np6" eventType="touchUpInside" id="i28-RN-dOL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="PEc-R6-Snv" firstAttribute="width" secondItem="B5s-xR-9VK" secondAttribute="width" id="17D-AU-nlX"/>
                                     <constraint firstItem="PEc-R6-Snv" firstAttribute="centerX" secondItem="xe0-up-9kV" secondAttribute="centerX" id="4Aa-8I-djG"/>
+                                    <constraint firstItem="B5s-xR-9VK" firstAttribute="top" secondItem="PEc-R6-Snv" secondAttribute="bottom" constant="8" id="5vj-bo-ieu"/>
                                     <constraint firstItem="B5s-xR-9VK" firstAttribute="top" secondItem="CfJ-Ir-AjC" secondAttribute="bottom" constant="188" id="7OX-Ju-Thb"/>
                                     <constraint firstItem="PEc-R6-Snv" firstAttribute="height" secondItem="B5s-xR-9VK" secondAttribute="height" id="9cW-YX-45p"/>
                                     <constraint firstItem="PEc-R6-Snv" firstAttribute="trailing" secondItem="B5s-xR-9VK" secondAttribute="trailing" id="DdK-NZ-pIm"/>
-                                    <constraint firstItem="PEc-R6-Snv" firstAttribute="top" secondItem="B5s-xR-9VK" secondAttribute="bottom" constant="8" id="DkX-jj-pjd"/>
                                     <constraint firstItem="PEc-R6-Snv" firstAttribute="leading" secondItem="B5s-xR-9VK" secondAttribute="leading" id="EpL-z4-BnQ"/>
                                     <constraint firstItem="CfJ-Ir-AjC" firstAttribute="centerX" secondItem="xe0-up-9kV" secondAttribute="centerX" id="LBy-aU-bBG"/>
                                     <constraint firstItem="B5s-xR-9VK" firstAttribute="centerX" secondItem="xe0-up-9kV" secondAttribute="centerX" id="Mcf-SM-pxp"/>
                                     <constraint firstItem="yfi-1Y-K5m" firstAttribute="top" secondItem="xe0-up-9kV" secondAttribute="top" constant="120" id="cfM-pF-7ml"/>
-                                    <constraint firstAttribute="bottom" secondItem="PEc-R6-Snv" secondAttribute="bottom" constant="32" id="dS8-VJ-AaB"/>
+                                    <constraint firstItem="PEc-R6-Snv" firstAttribute="leading" secondItem="xe0-up-9kV" secondAttribute="leading" constant="47" id="fnf-7W-nCF"/>
+                                    <constraint firstAttribute="bottom" secondItem="B5s-xR-9VK" secondAttribute="bottom" constant="30" id="nn7-nY-3g0"/>
                                     <constraint firstItem="CfJ-Ir-AjC" firstAttribute="top" secondItem="yfi-1Y-K5m" secondAttribute="bottom" constant="8" id="pur-YT-QAq"/>
                                     <constraint firstItem="yfi-1Y-K5m" firstAttribute="centerX" secondItem="xe0-up-9kV" secondAttribute="centerX" id="vit-A2-jCP"/>
                                 </constraints>

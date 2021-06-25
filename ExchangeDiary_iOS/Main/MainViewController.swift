@@ -117,8 +117,9 @@ extension MainViewController: UICollectionViewDelegate {
             presentDiaryPageController(diaryId: selectedId)
         default:
             let storyBoard = UIStoryboard(name: "Onboarding", bundle: nil)
-            let vc0 = storyBoard.instantiateViewController(withIdentifier: "Onboarding")
-            present(vc0, animated: true)
+            let onboardingVC = storyBoard.instantiateViewController(withIdentifier: "Onboarding")
+            onboardingVC.modalPresentationStyle = .fullScreen
+            present(onboardingVC, animated: true)
         }
     }
 }

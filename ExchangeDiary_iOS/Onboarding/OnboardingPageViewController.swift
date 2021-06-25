@@ -33,11 +33,6 @@ class OnboardingPageViewController: UIPageViewController {
         super.viewDidLoad()
         setupPageViewController()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OnboardingPageSegue" {
-            print("🐻")
-        }
-    }
     
     // MARK: - Functions
     private func setupPageViewController() {
@@ -47,13 +42,23 @@ class OnboardingPageViewController: UIPageViewController {
     }
 }
 
-extension OnboardingPageViewController: UIPageViewControllerDelegate { }
+// MARK: - UIPageViewControllerDelegate
+extension OnboardingPageViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        // 이동이 완료되지 않았으면 그냥 리턴
+        guard completed else { return }
+        
+        if let vc = pageViewController.viewControllers?.first {
+            movePageControlTo(vc.view.tag)
+        }
+    }
+}
 
+// MARK: - UIPageViewControllerDataSource
 extension OnboardingPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let index = pageViewController.viewControllers?.first?.view.tag {
             if index > 0 {
-                movePageControlTo(index - 1)
                 return viewList[index - 1]
             }
         }
@@ -61,9 +66,8 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let index = pageViewController.viewControllers?.first?.view.tag {
+        if let index = pageViewController.viewControllers?.last?.view.tag {
             if index < viewList.count - 1 {
-                movePageControlTo(index + 1)
                 return viewList[index + 1]
             }
         }

@@ -19,9 +19,6 @@
 		3AB961452682199F00D912A9 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961442682199F00D912A9 /* Diary.swift */; };
 		3AB9614926824C7B00D912A9 /* DiaryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9614826824C7B00D912A9 /* DiaryGroup.swift */; };
 		3AB961532684B08F00D912A9 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB961522684B08F00D912A9 /* Onboarding.storyboard */; };
-		3AB961592684BA1300D912A9 /* Onboarding0ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961582684BA1300D912A9 /* Onboarding0ViewController.swift */; };
-		3AB9615C2684BA2300D912A9 /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9615B2684BA2300D912A9 /* Onboarding1ViewController.swift */; };
-		3AB9615F2684BA3400D912A9 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9615E2684BA3400D912A9 /* Onboarding2ViewController.swift */; };
 		3AB961622684BA3F00D912A9 /* OnboardingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961612684BA3F00D912A9 /* OnboardingLoginViewController.swift */; };
 		3AB961662684BE7000D912A9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB961652684BE7000D912A9 /* OnboardingViewController.swift */; };
 		3AB9616B2684BEAE00D912A9 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9616A2684BEAE00D912A9 /* OnboardingPageViewController.swift */; };
@@ -54,9 +51,6 @@
 		3AB961442682199F00D912A9 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		3AB9614826824C7B00D912A9 /* DiaryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryGroup.swift; sourceTree = "<group>"; };
 		3AB961522684B08F00D912A9 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		3AB961582684BA1300D912A9 /* Onboarding0ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Onboarding0ViewController.swift; path = ExchangeDiary_iOS/Onboarding/Pages/Onboarding0ViewController.swift; sourceTree = SOURCE_ROOT; };
-		3AB9615B2684BA2300D912A9 /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
-		3AB9615E2684BA3400D912A9 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
 		3AB961612684BA3F00D912A9 /* OnboardingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewController.swift; sourceTree = "<group>"; };
 		3AB961652684BE7000D912A9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3AB9616A2684BEAE00D912A9 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
@@ -150,9 +144,6 @@
 		3AB961682684BE7A00D912A9 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				3AB961582684BA1300D912A9 /* Onboarding0ViewController.swift */,
-				3AB9615B2684BA2300D912A9 /* Onboarding1ViewController.swift */,
-				3AB9615E2684BA3400D912A9 /* Onboarding2ViewController.swift */,
 				3AB961612684BA3F00D912A9 /* OnboardingLoginViewController.swift */,
 			);
 			path = Pages;
@@ -343,7 +334,6 @@
 				3AFD174B267E581B00F52190 /* MainWritingDiaryItemCell.swift in Sources */,
 				3AB9616B2684BEAE00D912A9 /* OnboardingPageViewController.swift in Sources */,
 				3ADABD9B2663DE06008EA264 /* MainViewController.swift in Sources */,
-				3AB961592684BA1300D912A9 /* Onboarding0ViewController.swift in Sources */,
 				3A7E5A8F26805E7E002040AF /* MainSmallDiaryItemCell.swift in Sources */,
 				3AB961662684BE7000D912A9 /* OnboardingViewController.swift in Sources */,
 				3ADABDDA2666822F008EA264 /* UIFont+Additions.swift in Sources */,
@@ -355,8 +345,6 @@
 				3ADABD972663DE06008EA264 /* AppDelegate.swift in Sources */,
 				3ADABD992663DE06008EA264 /* SceneDelegate.swift in Sources */,
 				3AB961412682181000D912A9 /* MainViewModel.swift in Sources */,
-				3AB9615F2684BA3400D912A9 /* Onboarding2ViewController.swift in Sources */,
-				3AB9615C2684BA2300D912A9 /* Onboarding1ViewController.swift in Sources */,
 				3AB9614926824C7B00D912A9 /* DiaryGroup.swift in Sources */,
 				3AB961452682199F00D912A9 /* Diary.swift in Sources */,
 			);
