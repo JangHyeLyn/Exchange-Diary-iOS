@@ -12,7 +12,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="MOK-CV-HmK">
             <objects>
-                <viewController storyboardIdentifier="Onboarding" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RxD-A0-cXA" customClass="OnboardingViewController" customModule="ExchangeDiary_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="OnboardingViewController" storyboardIdentifier="OnboardingViewController" id="RxD-A0-cXA" customClass="OnboardingViewController" customModule="ExchangeDiary_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NkM-3j-fko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
