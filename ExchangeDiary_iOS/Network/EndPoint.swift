@@ -14,11 +14,20 @@ protocol EndPoint {
     // /api/v1/users/...
     var path: String { get }
     
-    // 구조는 나중에 결정
-    var parameters: [String: String] { get }
+    // Requset
+    var header: [String: String] { get }
+    var contentType: ContentType? { get }
+    var body: [String: String]? { get }
     
     // GET, POST, PATCH ...
-    var method: String { get }
+    var method: HttpMethod { get }
+}
+
+enum HttpMethod {
+    case get, post, patch, delete
+}
+enum ContentType {
+    case formData, json
 }
 
 // MARK: -
@@ -32,20 +41,20 @@ enum ServiceAPI: EndPoint {
     case updateMyInfo(userName: String? = nil, description: String? = nil, profileImage: String? = nil) // PATCH
     
 // MARK: DIARY
-    // - POST
-    case createDiary(title: String, totalPage: Int = 30, cover: Int = 1, group: Int? = nil)
     // - GET
     case getDiaryInfo(diaryId: Int)
     case getMyDiaries
+    // - POST
+    case createDiary(title: String, totalPage: Int = 30, cover: Int = 1, group: Int? = nil)
     // - PATCH
     case updateDiaryInfo(diaryId: Int, title: String? = nil, cover: Int? = nil, group: Int? = nil) // PATCH
     
 // MARK: GROUP
-    // - POST
-    case createGroup(groupTitle: String)
     // - GET
     case getMyGroups
     case getGroupInfo(groupId: Int)
+    // - POST
+    case createGroup(groupTitle: String)
     // - PATCH
     case updateGroupInfo(groupId: Int, title: String)
     case updateGroupRank(groupIdwithRank: [Int: Int])
@@ -53,11 +62,11 @@ enum ServiceAPI: EndPoint {
     case deleteGroup(groupId: Int)
     
 // MARK: MEMBER
-    // - POST
-    case joinDiary(diaryId: Int)
     // - GET
     case getMembers(diaryId: Int)
     case getMyInfoInDiary(diaryId: Int)
+    // - POST
+    case joinDiary(diaryId: Int)
     // - PATCH
     case updateMyInfoInDiary(diaryId: Int, nickname: String? = nil, profileImage: String? = nil)
     // - DELETE
@@ -73,14 +82,63 @@ enum ServiceAPI: EndPoint {
     }
     
     var path: String {
-        return ""
+        switch self {
+        case .getUserInfo(let userId):
+            return "/api/v1/users/\(userId)/"
+        case .getMyInfo:
+            return "/api/v1/users/me/"
+        case .updateMyInfo:
+            return "/api/v1/users/me/"
+            
+        default:
+            return ""
+        }
     }
     
-    var parameters: [String: String] {
-        return [:]
+    var header: [String: String] {
+        let token = "jwt토큰"
+        return ["Authorization": token]
     }
     
-    var method: String {
-        return ""
+    var contentType: ContentType? {
+        switch self {
+        case .updateMyInfo:
+            return .formData
+        default:
+            return nil
+        }
+    }
+    
+    var body: [String: String]? {
+        switch self {
+        case .updateMyInfo(let userName, let description, let profileImage):
+            var param: [String: String] = [:]
+            if let userName = userName {
+                param["username"] = userName
+            }
+            if let description = description {
+                param["descriotion"] = description
+            }
+            if let profileImage = profileImage {
+                param["profile_img"] = profileImage
+            }
+            return param
+            
+        default:
+            return nil
+        }
+    }
+    
+    var method: HttpMethod {
+        switch self {
+        case .getUserInfo, .getMyInfo:
+            return .get
+            
+        case .updateMyInfo:
+            return .patch
+            
+        default:
+            return .get
+        }
     }
 }
