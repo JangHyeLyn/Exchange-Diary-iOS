@@ -1,38 +1,14 @@
 //
-//  EndPoint.swift
+//  ServiceAPI.swift
 //  ExchangeDiary_iOS
 //
-//  Created by 임수현 on 2021/06/29.
+//  Created by 임수현 on 2021/06/30.
 //
 
 import Foundation
 
-protocol EndPoint {
-    // server base url
-    var baseURL: String { get }
-    
-    // /api/v1/users/...
-    var path: String { get }
-    
-    // Requset
-    var header: [String: String] { get }
-    var contentType: ContentType? { get }
-    var body: [String: String]? { get }
-    
-    // GET, POST, PATCH ...
-    var method: HttpMethod { get }
-}
-
-enum HttpMethod {
-    case get, post, patch, delete
-}
-enum ContentType {
-    case formData, json
-}
-
-// MARK: -
 // enum을 사용한 이유 : API별로 케이스를 만들어준다! 그리고 해당 API별로 변수 리턴이 다 다르게 될 예정
-enum ServiceAPI: EndPoint {
+enum ServiceAPI {
 // MARK: USER
     // - GET
     case getUserInfo(userId: Int)
@@ -45,7 +21,7 @@ enum ServiceAPI: EndPoint {
     case getDiaryInfo(diaryId: Int)
     case getMyDiaries
     // - POST
-    case createDiary(title: String, totalPage: Int = 30, cover: Int = 1, group: Int? = nil)
+    case createDiary(title: String, totalPage: Int? = nil, cover: Int? = nil, group: Int? = nil)
     // - PATCH
     case updateDiaryInfo(diaryId: Int, title: String? = nil, cover: Int? = nil, group: Int? = nil) // PATCH
     
@@ -75,20 +51,28 @@ enum ServiceAPI: EndPoint {
 // MARK: NOTIFICATION
     // - GET
     case getNotifications
-    
-// MARK: - return values
+}
+
+// MARK: - End Point
+extension ServiceAPI: EndPoint {
     var baseURL: String {
         return "13.209.49.204"
     }
-    
+    var apiPath: String {
+        return "/api/v1"
+    }
     var path: String {
         switch self {
         case .getUserInfo(let userId):
-            return "/api/v1/users/\(userId)/"
-        case .getMyInfo:
-            return "/api/v1/users/me/"
-        case .updateMyInfo:
-            return "/api/v1/users/me/"
+            return "\(apiPath)/users/\(userId)/"
+        case .getMyInfo, .updateMyInfo:
+            return "\(apiPath)/users/me/"
+        case .getDiaryInfo(let diaryId), .updateDiaryInfo(let diaryId, _, _, _):
+            return "\(apiPath)/diaries/\(diaryId)/"
+        case .getMyDiaries:
+            return "\(apiPath)/diaries/me/"
+        case .createGroup:
+            return "\(apiPath)/diaries/"
             
         default:
             return ""
@@ -102,17 +86,17 @@ enum ServiceAPI: EndPoint {
     
     var contentType: ContentType? {
         switch self {
-        case .updateMyInfo:
+        case .updateMyInfo, .createDiary, .updateDiaryInfo:
             return .formData
         default:
             return nil
         }
     }
     
-    var body: [String: String]? {
+    var body: [String: Any]? {
         switch self {
         case .updateMyInfo(let userName, let description, let profileImage):
-            var param: [String: String] = [:]
+            var param: [String: Any] = [:]
             if let userName = userName {
                 param["username"] = userName
             }
@@ -124,6 +108,33 @@ enum ServiceAPI: EndPoint {
             }
             return param
             
+        case .createDiary(let title, let totalPage, let cover, let group):
+            var param: [String: Any] = [:]
+            param["title"] = title
+            if let totalPage = totalPage {
+                param["total_page"] = totalPage
+            }
+            if let cover = cover {
+                param["cover"] = cover
+            }
+            if let group = group {
+                param["group"] = group
+            }
+            return param
+            
+        case .updateDiaryInfo(_, let title, let cover, let group):
+            var param: [String: Any] = [:]
+            if let title = title {
+                param["title"] = title
+            }
+            if let cover = cover {
+                param["cover"] = cover
+            }
+            if let group = group {
+                param["group"] = group
+            }
+            return param
+            
         default:
             return nil
         }
@@ -131,10 +142,13 @@ enum ServiceAPI: EndPoint {
     
     var method: HttpMethod {
         switch self {
-        case .getUserInfo, .getMyInfo:
+        case .getUserInfo, .getMyInfo, .getDiaryInfo, .getMyDiaries:
             return .get
             
-        case .updateMyInfo:
+        case .createDiary:
+            return .post
+            
+        case .updateMyInfo, .updateDiaryInfo:
             return .patch
             
         default:
