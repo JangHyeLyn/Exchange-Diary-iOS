@@ -65,14 +65,39 @@ extension ServiceAPI: EndPoint {
         switch self {
         case .getUserInfo(let userId):
             return "\(apiPath)/users/\(userId)/"
-        case .getMyInfo, .updateMyInfo:
+            
+        case .getMyInfo,
+             .updateMyInfo:
             return "\(apiPath)/users/me/"
-        case .getDiaryInfo(let diaryId), .updateDiaryInfo(let diaryId, _, _, _):
+            
+        case .getDiaryInfo(let diaryId),
+             .updateDiaryInfo(let diaryId, _, _, _):
             return "\(apiPath)/diaries/\(diaryId)/"
+            
         case .getMyDiaries:
             return "\(apiPath)/diaries/me/"
-        case .createGroup:
+            
+        case .createDiary:
             return "\(apiPath)/diaries/"
+            
+        case .getMyGroups,
+             .createGroup,
+             .updateGroupRank:
+            return "\(apiPath)/diarygroups/"
+            
+        case .getGroupInfo(let groupId),
+             .updateGroupInfo(let groupId, _),
+             .deleteGroup(let groupId):
+            return "\(apiPath)/diarygroups/\(groupId)/"
+            
+        case .getMembers(let diaryId),
+             .joinDiary(let diaryId):
+            return "\(apiPath)/diaries/\(diaryId)/members/"
+            
+        case .getMyInfoInDiary(let diaryId),
+             .updateMyInfoInDiary(let diaryId, _, _),
+             .leaveDiary(let diaryId):
+            return "\(apiPath)/diaries/\(diaryId)/members/me/"
             
         default:
             return ""
@@ -86,8 +111,14 @@ extension ServiceAPI: EndPoint {
     
     var contentType: ContentType? {
         switch self {
-        case .updateMyInfo, .createDiary, .updateDiaryInfo:
+        case .updateMyInfo, .createDiary, .updateDiaryInfo,
+             .createGroup, .updateGroupInfo,
+             .updateMyInfoInDiary:
             return .formData
+            
+        case .updateGroupRank:
+            return .json
+            
         default:
             return nil
         }
@@ -132,6 +163,25 @@ extension ServiceAPI: EndPoint {
             }
             if let group = group {
                 param["group"] = group
+            }
+            return param
+            
+        case .createGroup(let groupTitle), .updateGroupInfo(_, let groupTitle):
+            var param: [String: Any] = [:]
+            param["title"] = groupTitle
+            return param
+            
+        case .updateGroupRank(let groupIdwithRank):
+            // json형식은 어떻게 할지 고민중
+            return [:]
+            
+        case .updateMyInfoInDiary(_, let nickname, let profileImage):
+            var param: [String: Any] = [:]
+            if let nickname = nickname {
+                param["nickname"] = nickname
+            }
+            if let profileImage = profileImage {
+                param["profile_img"] = profileImage
             }
             return param
             
