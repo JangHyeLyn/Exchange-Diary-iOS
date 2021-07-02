@@ -23,8 +23,8 @@ protocol EndPoint {
     var method: HttpMethod { get }
 }
 
-enum HttpMethod {
-    case get, post, patch, delete
+enum HttpMethod: String {
+    case get = "GET", post = "POST", patch = "PATCH", delete = "DELETE"
 }
 enum ContentType {
     case formData, json
