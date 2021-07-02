@@ -58,6 +58,7 @@ excluded: # SwiftLint 검사에서 제외할 파일 경로
     - ExchangeDiary_iOS/AppDelegate.swift
     - ExchangeDiary_iOS/SceneDelegate.swift
     - ExchangeDiary_iOS/Extensions/UIColor+Additions.swift
+    - Pods
 
 indentation: 4
 

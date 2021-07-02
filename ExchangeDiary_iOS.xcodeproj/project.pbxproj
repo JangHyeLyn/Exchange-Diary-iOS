@@ -43,9 +43,11 @@
 		3ADABDDA2666822F008EA264 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADABDD92666822F008EA264 /* UIFont+Additions.swift */; };
 		3AFD174B267E581B00F52190 /* MainWritingDiaryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD1749267E581B00F52190 /* MainWritingDiaryItemCell.swift */; };
 		3AFD174C267E581B00F52190 /* MainWritingDiaryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD174A267E581B00F52190 /* MainWritingDiaryItemCell.xib */; };
+		8FD6BFF1968A466885F882CC /* Pods_ExchangeDiary_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE24A16FD66C3F3EDC4290D /* Pods_ExchangeDiary_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B3A44BD1B0E912F683F66E2 /* Pods-ExchangeDiary_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeDiary_iOS.release.xcconfig"; path = "Target Support Files/Pods-ExchangeDiary_iOS/Pods-ExchangeDiary_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3A7E5A8326805904002040AF /* MainGroupItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGroupItemCell.swift; sourceTree = "<group>"; };
 		3A7E5A8426805904002040AF /* MainGroupItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainGroupItemCell.xib; sourceTree = "<group>"; };
 		3A7E5A8D26805E7E002040AF /* MainSmallDiaryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSmallDiaryItemCell.swift; sourceTree = "<group>"; };
@@ -80,8 +82,10 @@
 		3ADABDC226640DED008EA264 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3ADABDD02664D5AC008EA264 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		3ADABDD92666822F008EA264 /* UIFont+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
+		3AE24A16FD66C3F3EDC4290D /* Pods_ExchangeDiary_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExchangeDiary_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFD1749267E581B00F52190 /* MainWritingDiaryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWritingDiaryItemCell.swift; sourceTree = "<group>"; };
 		3AFD174A267E581B00F52190 /* MainWritingDiaryItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWritingDiaryItemCell.xib; sourceTree = "<group>"; };
+		4472B8FE23ECBE7EDBC65270 /* Pods-ExchangeDiary_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeDiary_iOS.debug.xcconfig"; path = "Target Support Files/Pods-ExchangeDiary_iOS/Pods-ExchangeDiary_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				3ADABDCC26642957008EA264 /* FirebaseAnalytics in Frameworks */,
 				3ADABDC8266422A4008EA264 /* Lottie in Frameworks */,
 				3ADABDCE26642957008EA264 /* FirebaseDynamicLinks in Frameworks */,
+				8FD6BFF1968A466885F882CC /* Pods_ExchangeDiary_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +201,8 @@
 			children = (
 				3ADABD952663DE06008EA264 /* ExchangeDiary_iOS */,
 				3ADABD942663DE06008EA264 /* Products */,
+				F63E30E26D600BCEE92D39D2 /* Pods */,
+				7A1CA85C96F404A8AC9CB31E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,6 +274,23 @@
 			path = SubCell;
 			sourceTree = "<group>";
 		};
+		7A1CA85C96F404A8AC9CB31E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AE24A16FD66C3F3EDC4290D /* Pods_ExchangeDiary_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F63E30E26D600BCEE92D39D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4472B8FE23ECBE7EDBC65270 /* Pods-ExchangeDiary_iOS.debug.xcconfig */,
+				2B3A44BD1B0E912F683F66E2 /* Pods-ExchangeDiary_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,10 +298,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ADABDA72663DE06008EA264 /* Build configuration list for PBXNativeTarget "ExchangeDiary_iOS" */;
 			buildPhases = (
+				B34706DB89AD28E1B47597C2 /* [CP] Check Pods Manifest.lock */,
 				3ADABDC4266414FF008EA264 /* SwiftLint Script */,
 				3ADABD8F2663DE06008EA264 /* Sources */,
 				3ADABD902663DE06008EA264 /* Frameworks */,
 				3ADABD912663DE06008EA264 /* Resources */,
+				5D680737977A8A4B8D5577FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -368,6 +394,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5D680737977A8A4B8D5577FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExchangeDiary_iOS/Pods-ExchangeDiary_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExchangeDiary_iOS/Pods-ExchangeDiary_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExchangeDiary_iOS/Pods-ExchangeDiary_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B34706DB89AD28E1B47597C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExchangeDiary_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -553,6 +618,7 @@
 		};
 		3ADABDA82663DE06008EA264 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4472B8FE23ECBE7EDBC65270 /* Pods-ExchangeDiary_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -572,6 +638,7 @@
 		};
 		3ADABDA92663DE06008EA264 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B3A44BD1B0E912F683F66E2 /* Pods-ExchangeDiary_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
